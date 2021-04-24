@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
 @Entity("messages")
-class Messages {
+class Message {
     
     @PrimaryColumn()
     id: string;
@@ -32,4 +32,4 @@ class Messages {
 
 }
 
-export { Messages }
+export { Message }
