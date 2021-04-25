@@ -27,7 +27,12 @@ io.on("connect", async (socket) => {
             admin_id: socket.id
         });
 
-        const connection = await connectionService.findByUserId(user_id)
+        const { socket_id } = await connectionService.findByUserId(user_id)
+
+        io.to(socket_id).emit("admin_send_to_client", {
+            text,
+            socket_id: socket.id
+        })
     })
 
 
