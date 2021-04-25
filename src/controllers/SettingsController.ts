@@ -20,9 +20,15 @@ class SettingsController {
                 message: err.message
             })
         }
+    }
 
+    async findByUserName (req: Request, res: Response) {
 
-       
+        const { username } = req.params
+        const settingsServices = new SettingsServices();
+
+        const settings = await settingsServices.findByUserName(username);
+        return res.json(settings);
     }
 
 }
